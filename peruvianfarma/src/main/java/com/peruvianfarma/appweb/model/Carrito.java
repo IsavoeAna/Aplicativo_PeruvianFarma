@@ -3,9 +3,10 @@ package com.peruvianfarma.appweb.model;
 public class Carrito {
 
     private Long id;
-    private String numpedi;
-    private String numtel;
+    private int numpedi;
+    private int numtel;
     private String dni;
+
     
     
 }
