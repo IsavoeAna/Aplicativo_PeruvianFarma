@@ -1,0 +1,115 @@
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org" th:replace="~{fragments/layout :: layout (~{::body},'home')}">
+
+<head>
+    <title>Login Page</title>
+    <!--Made with love by Mutiullah Samim -->
+
+    <!--Bootsrap 4 CDN-->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+    <!--Fontawesome CDN-->
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous">
+
+    <!--Custom styles-->
+    <link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+
+<section id="wrapper" class="login-register login-sidebar" style="background: #8d1e1e;">
+    <div style="background-image:url(./../../../../src/main/resources/static/resources/images/bg.png);background-size: cover;border-radius: 15px;width: 79%;margin-left: 10%;height: 82%;;margin-top: 4%;box-shadow: 10px -1px 48px 5px rgba(0,0,0,0.47); text-align: center;">
+        <div class="login-box card" style="height: 100%; background-image: url(./../../../main/resources/static/resources/images/bg.png);">
+            <div class="card-body opacar" style="height: 80%;background: #ffffffe3;width: 26%;    box-shadow: -4px 4px 40px 13px rgba(0,0,0,0.47);border-radius: 6px; margin-left: 30%;">
+                <form ngNativeValidate #f="ngForm" class="form-horizontal form-material">
+                    <a href="javascript:void(0)" class="text-center db" style="text-decoration: none; cursor: auto;">
+                        <h1 style="font-weight: bold; ">PERUVIANFARMA</h1>
+                    </a>
+                    <div class="form-group m-t-40">
+                        <div class="col-12">
+                            <img src="../static/resources/images/bg.png" style="height: 215px; text-align: center;" alt="">
+                        </div>
+                    </div>
+                    <div class="form-group row m-t-40" style="margin-top: 6%;">
+                        <div class="col-12">
+                            <input [(ngModel)]="usuario.username" name="#username" class="form-control" type="text" required placeholder="Username">
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <div class="col-10" *ngIf="mostrarPassword">
+                            <input [(ngModel)]="usuario.password" name="#text" class="form-control" autocomplete="nope" type="text" required placeholder="Password">
+                        </div>
+                        <div class="col-2 mt-1 mb-1">
+                            <i class="mdi mdi-eye-off" style="font-size: 25px; color: #007951;"></i>
+                        </div>
+
+                    </div>
+                    <div class="form-group text-center m-t-20" style="margin-top: 10%">
+                        <div class="col-12">
+                            <button [disabled]="loadRegister" id="entrar" (click)="login()" class="btn btn-info btn-lg btn-block text-uppercase " style="background: #8d1e1e;" type="submit">
+                            <span [hidden]="!loadRegister" ><!-- <i class="fa fa-spin fa-spinner"> --></i></span>Ingresar</button>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <div class="col-12 mt-3 mb-2">
+                            <span class="float-right" style="cursor: pointer; font-size: 13px;" (click)="openModal()"><b>Olvidaste tu Password?</b></span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- <body style="background-image: url(./resources/images/OIP.png); background-size: cover; background-repeat: no-repeat; height: 100%; font-family: 'Numas', sans-serif;">
+    <div class="container" style="height: 100%; align-content: center;">
+        <div class="d-flex justify-content-center h-100">
+            <div class="card" style="height: 465px; margin-top: auto; margin-bottom: auto; width: 400x; background-color: rgba(0, 0, 0, 0.5);">
+                <div class="card-header" style="background-color: rgb(148, 42, 42);">
+                    <h2 style="color: rgb(0, 0, 0); font-weight: bold; text-align: center; font-size: initial; margin-bottom: -5px;">INGRESAR</h3>
+                </div>
+                <div class="card-body">
+                    <form class="form-horizontal form-material">
+                        <div class="form-group m-t-40">
+                            <div class="col-12">
+                                <img src="./resources/images/Captura.JPG" style="    height: 120px;" alt="">
+                            </div>
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            </div>
+                            <input type="text" class="form-control" placeholder="username">
+
+                        </div>
+                        <div class="input-group form-group">
+                            <div class="input-group-prepend">
+                                <span class="input-group-text"><i class="fas fa-key"></i></span>
+                            </div>
+                            <input type="password" class="form-control" placeholder="password">
+                        </div>
+                        <div class="row align-items-center remember" style="color: blue; font-weight: bold;">
+                            <input type="checkbox">Remember Me
+                        </div>
+                        <div class="form-group" style="margin-right: 15px;">
+                            <input type="submit" value="Login" class="btn float-right login_btn">
+                        </div>
+                    </form>
+                </div>
+                <div class="card-footer">
+                    <div class="d-flex justify-content-center links" style="font-weight: bold; color: black;">
+                        Don't have an account?<a href="#">Registrarse</a>
+                    </div>
+                    <div class="d-flex justify-content-center">
+                        <a href="#">Forgot your password?</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body> -->
+
+</html>
