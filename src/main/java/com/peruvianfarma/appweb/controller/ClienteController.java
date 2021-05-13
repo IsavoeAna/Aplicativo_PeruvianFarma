@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
-import javax.validation.Valid;
-
 import com.peruvianfarma.appweb.model.Cliente;
 import com.peruvianfarma.appweb.repository.ClienteRepository;
 import com.peruvianfarma.appweb.repository.UsuarioRepository;
+
+import javax.validation.Valid;
 
 
 
