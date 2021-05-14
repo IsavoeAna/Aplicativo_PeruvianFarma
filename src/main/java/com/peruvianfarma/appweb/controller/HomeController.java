@@ -9,7 +9,7 @@ public class HomeController {
     
     private static final String HOME_INDEX = "welcome";
 
-    @GetMapping("/welcome")
+    @GetMapping("/")
     public String index(Model model){
         return HOME_INDEX;
     }
