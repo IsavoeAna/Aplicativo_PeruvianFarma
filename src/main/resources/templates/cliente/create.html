@@ -14,7 +14,7 @@
                 <form th:object="${client}" th:action="@{/cliente/create}" method="post">
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            <label for="firstName">Nombres y Apellido</label>
+                            <label for="firstName">First Name</label>
                         </div>
                         <div class="col-sm-2">
                             <input type="text" th:field="*{firstName}" />
@@ -22,15 +22,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            <label for="lastName">Distrito</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <input type="text" th:field="*{lastName}" />
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-2">
-                            <label for="lastName">Direccion</label>
+                            <label for="lastName">Last Name</label>
                         </div>
                         <div class="col-sm-2">
                             <input type="text" th:field="*{lastName}" />
@@ -45,28 +37,16 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <div class="col-5">
-                            <label for="operador">Operador</label>
-                            <label for="phone">Celular</label>
+                        <div class="col-sm-2">
+                            <label for="phone">Phone</label>
                         </div>
                         <div class="col-sm-2">
                             <input type="text" data-inputmask="'mask': '(999) 999-9999'" th:field="*{phone}" />
                         </div>
-                        <div class="col-sm-2">
-                            <label for="maritalStatus">Operador</label>
-                        </div>
-                        <div class="col-sm-2">
-                            <select id="maritalStatus" placeholder="MaritalStatus" autocomplete="off" class="form-control" th:field="*{maritalStatus}">
-                    <option value="-">None</option>
-                    <option value="Single">Claro</option>
-                    <option value="Married">Movistar</option>
-                    <option value="Divored">Entel</option>
-                  </select>
-                        </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            <label for="birthdate">Fecha Nacimiento</label>
+                            <label for="birthdate">Date of birth</label>
                         </div>
                         <div class="col-sm-3">
                             <div class="input-group date">
@@ -79,15 +59,15 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            <label for="maritalStatus">Distrito</label>
+                            <label for="maritalStatus">Marital Status</label>
                         </div>
                         <div class="col-sm-2">
                             <select id="maritalStatus" placeholder="MaritalStatus" autocomplete="off" class="form-control" th:field="*{maritalStatus}">
                     <option value="-">None</option>
-                    <option value="Single">SJL</option>
-                    <option value="Married">Lince</option>
-                    <option value="Divored">SMP</option>
-                    <option value="Widower">Callao</option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Divored">Divorced</option>
+                    <option value="Widower">Widower</option>
                   </select>
                         </div>
                     </div>
@@ -106,7 +86,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-2">
-                            <label for="user.userID">Usuario</label>
+                            <label for="user.userID">User</label>
                         </div>
                         <div class="col-sm-2">
                             <input type="text" th:field="*{user.userID}" />

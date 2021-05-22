@@ -7,12 +7,11 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 
 import com.peruvianfarma.appweb.model.Cliente;
+import com.peruvianfarma.appweb.model.Usuario;
 import com.peruvianfarma.appweb.repository.ClienteRepository;
 import com.peruvianfarma.appweb.repository.UsuarioRepository;
 
 import javax.validation.Valid;
-
-
 
 @Controller
 public class ClienteController {
@@ -41,7 +40,9 @@ public class ClienteController {
         if(result.hasFieldErrors()) {
             model.addAttribute("mensaje", "No se registro un cliente");
         }else{
-            this.usuariosData.save(objCliente.getUser());
+            Usuario user = objCliente.getUser();
+            user.setTipoUsuario("C");
+            this.usuariosData.save(user);
             this.usuariosData.flush();
             this.clientsData.save(objCliente);
             model.addAttribute(MODEL_CONTACT, objCliente);
